@@ -18,8 +18,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_12_08_220727) do
     t.string "name"
     t.integer "age"
     t.text "bio"
-    t.string "status"
-    t.string "integer"
+    t.integer "status"
     t.string "password_digest"
   end
 
