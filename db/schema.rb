@@ -21,6 +21,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_12_09_184235) do
     t.integer "start_time"
     t.integer "end_time"
     t.text "description"
+    t.index ["user_id", "created_at"], name: "index_events_on_user_id_and_created_at"
     t.index ["user_id"], name: "index_events_on_user_id"
   end
 
@@ -34,7 +35,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_12_09_184235) do
     t.integer "status"
     t.string "password_digest"
     t.string "remember_digest"
-    t.boolean "admin"
+    t.boolean "admin", default: false
   end
 
   add_foreign_key "events", "users"
