@@ -1,5 +1,7 @@
 class User < ApplicationRecord
     attr_accessor :remember_token
+    has_many :events
+
     before_save { self.email = email.downcase }
   
     enum status: { 'Want a guide': 0, 'Want to guide': 1, 'Want to run with anyone':2 }
