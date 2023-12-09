@@ -1,5 +1,7 @@
 class User < ApplicationRecord
+  has_many :events, dependent: :destroy
     attr_accessor :remember_token
+
     before_save { self.email = email.downcase }
   
     enum status: { 'Want a guide': 0, 'Want to guide': 1, 'Want to run with anyone':2 }

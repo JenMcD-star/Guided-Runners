@@ -5,7 +5,21 @@
       <h1>
         <%= gravatar_for @user %>
         <%= @user.name %>
-      </h1>
+        </h1>
+        
+        <div class = "bio">
+       Bio: <%= @user.bio %>
+        </div>
+        
+        <div class ="status">
+        Status: <%= @user.status %>
+        </div>
+
+    
+
     </section>
   </aside>
+</div>
+<div class = "userEvent">
+<%= render 'user_event' %>
 </div>
