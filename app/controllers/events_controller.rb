@@ -8,6 +8,8 @@ class EventsController < ApplicationController
   
     # GET /posts/1 or /posts/1.json
     def show
+      @user = User.find(params[:id])
+      @events = @user.events(event: params[:event])
     end
   
     # GET /posts/new

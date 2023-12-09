@@ -1,6 +1,5 @@
 class User < ApplicationRecord
-  has_many :events
-
+  has_many :events, dependent: :destroy
     attr_accessor :remember_token
 
     before_save { self.email = email.downcase }
