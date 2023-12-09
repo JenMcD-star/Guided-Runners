@@ -21,10 +21,10 @@ class EventsController < ApplicationController
   
     # POST /posts or /posts.json
     def create
-        user = current_user
+        @user = current_user
         @event = Event.new(event_params)
         if @event.save
-          flash[:success] = "Event"
+          flash[:success] = "Event Added!"
           redirect_to events_path
         else
           render 'new'
@@ -35,7 +35,8 @@ class EventsController < ApplicationController
 
       def event_params
         params.require(:event).permit(:name, :location, :event_date,
-                                     :description, :start_time, :end_time)
+                                     :description, :start_time, :end_time, :user_id).merge(user: current_user)
+
       end
   
 end

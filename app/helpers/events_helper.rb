@@ -1,5 +1,5 @@
 module EventsHelper
-    def current_user?(user)
-    user == current_user
+  def log_in(user)
+    events[:user_id] = user.id
   end
 end
