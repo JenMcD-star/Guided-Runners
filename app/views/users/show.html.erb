@@ -15,9 +15,12 @@
         Status: <%= @user.status %>
         </div>
 
-    
-
     </section>
+    <section class="stats">
+    <%= render 'shared/stats' %>
+    <%= render 'follow_form' if logged_in? %>
+  </section>
+
   </aside>
 </div>
 <div class = "userEvent">

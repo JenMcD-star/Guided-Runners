@@ -1,4 +1,23 @@
-<div class="center jumbotron">
+<% if logged_in? %>
+<% @user ||= current_user %>
+<div class= "welcome">
+<h1>Welcome<%@user.name %>!</h1>
+<ul>
+<li><%= link_to "See all users", users_path %></li>
+<li><%= link_to "See all events", events_path %></li>
+
+<li><%= link_to "Create new event", new_event_path(current_user) %></li>
+
+</ul>
+
+</div>
+      <section class="stats">
+        <%= render 'shared/stats' %>
+      </section>
+<% else %>
+<div class="row">
+<aside class="col-md-4">
+  <div class="center jumbotron">
   <h1>Welcome</h1>
 
   <h2>
@@ -8,6 +27,7 @@
   <%= link_to "Sign up now!", signup_path, class: "btn btn-lg btn-primary" %>
   
   </div>
+  <% end %>
 
 <%= link_to image_tag("rails.png", alt: "Rails logo"),
             'http://rubyonrails.org/' %>
