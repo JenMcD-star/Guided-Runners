@@ -1,27 +1,31 @@
 class EventsController < ApplicationController
-    before_action :set_event, only: %i[ show edit update destroy ]
-  
-    # GET /posts or /posts.json
+
     def index
       @events = Event.all
     end
   
-    # GET /posts/1 or /posts/1.json
     def show
-      @user = User.find(params[:id])
-      @events = @user.events(event: params[:event])
+      @event = Event.find(params[:id])
     end
   
-    # GET /posts/new
     def new
       @event = Event.new
     end
   
-    # GET /posts/1/edit
     def edit
+      @event = Event.find(params[:id])
     end
   
-    # POST /posts or /posts.json
+    def update
+      @event = Event.find(params[:id])
+      if @event.update(event_params)
+        flash[:success] = "Event updated"
+        redirect_to @event
+      else
+        render 'edit'
+      end
+    end
+  
     def create
         @user = current_user
         @event = Event.new(event_params)
@@ -33,12 +37,25 @@ class EventsController < ApplicationController
         end
       end
 
+      def destroy
+        @event = current_user.events.find(params[:id])
+  @event.destroy
+
+
+      
+          flash[:success] = "event destroyed."
+      redirect_to events_path
+      end
+
+
       private
+
+      
 
       def event_params
         params.require(:event).permit(:name, :location, :event_date,
                                      :description, :start_time, :end_time, :user_id).merge(user: current_user)
 
       end
+  end
   
-end
