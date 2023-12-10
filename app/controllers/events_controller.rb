@@ -33,6 +33,7 @@ class EventsController < ApplicationController
           flash[:success] = "Event Added!"
           redirect_to events_path
         else
+          flash.now[:danger] = 'please log in'
           render 'new'
         end
       end
