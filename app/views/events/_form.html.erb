@@ -1,15 +1,5 @@
-<%= form_with(model: event) do |f| %>
-    <% if event.errors.any? %>
-      <div style="color: red">
-        <h2><%= pluralize(event.errors.count, "error") %> prohibited this post from being saved:</h2>
-  
-        <ul>
-          <% event.errors.each do |error| %>
-            <li><%= error.full_message %></li>
-          <% end %>
-        </ul>
-      </div>
-    <% end %>
+<%= form_for(@event) do |f| %>
+
   
     <div class="field">
       <%= f.label :name %>

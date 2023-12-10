@@ -1,0 +1,29 @@
+<% provide(:title, @event.name) %>
+<div class="row">
+  <aside class="col-md-4">
+    <section class="user_info">
+
+        
+        <div class = "bio">
+       Description: <%= @event.description %>
+        </div>
+        
+        <div class ="status">
+        Date: <%= @event.event_date.strftime("%B %d, %Y")%>
+        </div>
+
+        <div class ="status">
+        Time: <%= @event.start_time%>-<%= @event.end_time%>
+        </div>
+
+        <div class ="status">
+        Creator: <%= @event.user.name%>
+        </div>
+
+
+    
+
+    </section>
+  </aside>
+</div>
+
