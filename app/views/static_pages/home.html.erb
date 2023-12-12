@@ -1,19 +1,23 @@
 <% if logged_in? %>
+<section class="user_info">
+        <%= render 'shared/user_info' %>
+      </section>
 <% @user ||= current_user %>
-<div class= "welcome">
-<h1>Welcome<%@user.name %>!</h1>
-<ul>
+<section class="stats">
+        <%= render 'shared/stats' %>
+      </section>
+<ul class= "home_list">
+<li><%= link_to "View my profile", @user %></li>
 <li><%= link_to "See all users", users_path %></li>
 <li><%= link_to "See all events", events_path %></li>
-
 <li><%= link_to "Create new event", new_event_path(current_user) %></li>
-
 </ul>
 
 </div>
-      <section class="stats">
-        <%= render 'shared/stats' %>
-      </section>
+      
+      <div class="col-md-8">
+      <h3>Event Feed</h3>
+      <%= render 'shared/feed' %>
 <% else %>
 <div class="row">
 <aside class="col-md-4">
