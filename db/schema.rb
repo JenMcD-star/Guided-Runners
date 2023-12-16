@@ -34,12 +34,12 @@ ActiveRecord::Schema[7.0].define(version: 2023_12_16_003235) do
 
   create_table "messages", force: :cascade do |t|
     t.text "body"
-    t.integer "conversations_id"
-    t.integer "users_id"
+    t.integer "conversation_id"
+    t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["conversations_id"], name: "index_messages_on_conversations_id"
-    t.index ["users_id"], name: "index_messages_on_users_id"
+    t.index ["conversation_id"], name: "index_messages_on_conversation_id"
+    t.index ["user_id"], name: "index_messages_on_user_id"
   end
 
   create_table "relationships", force: :cascade do |t|
