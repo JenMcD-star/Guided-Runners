@@ -40,11 +40,9 @@ class EventsController < ApplicationController
 
       def destroy
         @event = current_user.events.find(params[:id])
-  @event.destroy
-
-
+        @event.destroy
       
-          flash[:success] = "event destroyed."
+      flash[:success] = "event destroyed."
       redirect_to events_path
       end
 
