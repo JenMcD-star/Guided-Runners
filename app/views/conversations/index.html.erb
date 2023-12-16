@@ -9,6 +9,8 @@
    <% recipient = User.find(conversation.sender_id) %>
   <% end %>
   <h3><%= link_to recipient.name, conversation_messages_path(conversation)%></h3>
+  <%= button_to('Delete', conversation, method: :delete, data: { turbo_confirm: 'Are you sure?' }) %>
+
  <% end %>
 <% end %>
 
