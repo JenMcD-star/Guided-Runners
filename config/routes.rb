@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  resources :conversations do 
+    resources :messages 
+  end
+  
   get 'sessions/new'
   root             'static_pages#home'
   get 'help'    => 'static_pages#help'

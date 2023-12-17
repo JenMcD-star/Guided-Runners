@@ -1,0 +1,13 @@
+<% if message.body %>
+    <% user = User.find(message.user_id) %>
+    <strong><%= user.name %></strong>
+    <%= message.body %>
+
+<% end %>
+
+
+<br>
+
+
+
+      
