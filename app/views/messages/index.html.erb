@@ -1,6 +1,15 @@
+<% puts params %>
 
+<% recipient = Conversation.find(params[:conversation_id]).recipient_id %>
+<% recipient_name = User.find(recipient) %>
+
+<div class = "recipient">
+<h1> Conversation with <%= recipient_name.name %></h1>
+</div>
+<br>
 <ul class="messages">
   <%= render @messages %>
+
 </ul>
 <%= form_for [@conversation, @message] do |f| %>     
     <%= f.text_area :body %>
