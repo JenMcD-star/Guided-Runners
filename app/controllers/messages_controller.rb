@@ -1,6 +1,9 @@
 class MessagesController < ApplicationController
-    before_action do
-      @conversation = Conversation.find(params[:conversation_id])
+  before_action :correct_user
+
+
+  before_action do
+      @conversation = Conversation.find(params[:conversation_id])    
     end
     
     def index
@@ -21,6 +24,16 @@ class MessagesController < ApplicationController
     
     private
     def message_params
-      params.require(:message).permit(:body, :user_id).merge(conversation: recipient_id)
+      params.require(:message).permit(:body, :user_id)
+    end
+
+
+
+    def correct_user
+      @user = Conversation.find(params[:conversation_id]).sender_id
+      @user1 = Conversation.find(params[:conversation_id]).recipient_id
+
+      redirect_to(root_path) unless current_user.id == @user || current_user.id == @user1
     end
   end
+  
