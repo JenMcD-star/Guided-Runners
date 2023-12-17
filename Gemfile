@@ -23,6 +23,8 @@ gem "turbo-rails"
 
 gem "faker", "~> 3.2.2"
 
+gem "ransack"
+
 # Hotwire's modest JavaScript framework [https://stimulus.hotwired.dev]
 gem "stimulus-rails"
 

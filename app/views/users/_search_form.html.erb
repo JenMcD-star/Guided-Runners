@@ -1,0 +1,39 @@
+<%= search_form_for @q do |f| %>
+
+  <%= f.label :status, "Search for people who" %>
+  <%= f.select :status_eq, options_for_select(User.statuses), include_blank: 'All' %>
+  <%= f.submit "Search" %>
+
+<% end %>
+<div class = users>
+<% @results.each do |result| %>
+    <li>
+    <%= gravatar_for result, size: 100 %>
+    <%= link_to result.name, result %>
+  
+  
+    <p>
+    <strong>Age:</strong>
+    <%= result.age %>
+  </p>
+  
+  <p>
+    <strong>Bio:</strong>
+    <%= result.bio %>
+  </p>
+  
+  <p>
+    <strong>Status:</strong>
+    <%= result.status %>
+  </p>
+  
+
+  </li>
+  
+  <% end %>
+  </div>
+
+
+
+
+

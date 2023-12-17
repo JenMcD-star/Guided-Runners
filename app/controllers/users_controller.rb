@@ -8,7 +8,10 @@ class UsersController < ApplicationController
 
   def index
     @users = User.paginate(page: params[:page])
+      @q = User.ransack(params[:q])
+      @results = @q.result    
   end
+  
 
   def new
     @user = User.new

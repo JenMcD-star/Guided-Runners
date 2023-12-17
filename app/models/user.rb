@@ -76,4 +76,12 @@ class User < ApplicationRecord
       following.include?(other_user)
     end
 
+    #set sorting atrributes
+    def self.ransackable_attributes(_auth_object = nil)
+      [
+       
+        "status"
+      ]
+    end
+
 end
