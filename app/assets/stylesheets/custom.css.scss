@@ -195,6 +195,8 @@ input {
 }
 
 .userEvents {
+  border: black, 10px;
+
   list-style: none;
   margin: 0;
   li {
@@ -204,13 +206,12 @@ input {
 }
 }
 
+
 .eventpost {
   list-style: none;
   padding: 0;
   li {
-    padding: 10px 0;
-    border-top: 1px solid #e8e8e8;
-  }
+    padding: 10px 0;  }
   .user {
     margin-top: 5em;
     padding-top: 0;
