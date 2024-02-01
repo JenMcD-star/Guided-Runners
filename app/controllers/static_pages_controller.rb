@@ -2,9 +2,12 @@ class StaticPagesController < ApplicationController
   def home
     if logged_in?
       @event  = current_user.events.build
-      @feed_items = current_user.feed.paginate(page: params[:page])
+      @pagy, @feed_items = pagy(current_user.feed, items:5)
+
+    
     end
   end
+
 
   def help
   end
