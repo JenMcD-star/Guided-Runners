@@ -1,6 +1,12 @@
 <ol class="eventpost">
-<p>
+
+<div class = "row">
+<div class = "column"><p>
+
+<div class = "box">
 <strong>Name:</strong>
+
+
 <%= link_to event.name, event %>
 </p>
 
@@ -21,10 +27,15 @@
 <strong>Creator:</strong>
 <%= event.user.name %>
 
+</div>
+</div>
+</div>
+
 <% if current_user && current_user == event.user %>
 <td><%= button_to('Delete', event, method: :delete, data: { turbo_confirm: 'Are you sure?' }) %></td>
 <% end %>
 </ol>
 
 </p>
+
 <br>
