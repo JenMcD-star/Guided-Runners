@@ -1,7 +1,10 @@
 <% if @feed_items.any? %>
   <ol class="eventsfeed">
     <%= render @feed_items %>
-  </ol>
+
   <%== pagy_nav(@pagy) %>
   <p><%== pagy_info @pagy %></p>
+  </ol>
 <% end %>
+</div>
+</div>
