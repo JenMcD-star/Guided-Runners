@@ -308,6 +308,10 @@ span.picture {
   text-align: center;
 }
 
+.col-md-4{
+  border: #000;
+}
+
 .welcome {
   margin-top: -200px;
   margin-bottom: 100px;
@@ -386,10 +390,13 @@ button:after {
 
 .messageStyling{
   background-color : #8191a5;
-  height : 50px;
+  height : fit-content;
   width : fit-content;
   border-radius : 5px;
   padding: 15px;
+  float: left;
+  font-size: 1.5em;
+
 }
 .messageStyling:before{
       position: absolute;
@@ -398,15 +405,18 @@ display: inline-block;
 top: -8px;
 transform: rotate(76deg);
 color: #4692F0;
-font-size: 1em;
+font-size: 2em;
 left: 25px;
 padding: 10px;
 }
 
 .messageStyling2{
-  background-color : #8191a5;
-  height : 50px;
+  background-color : #921352;
+  color: wheat;
+  height : fit-content;
   width : fit-content;
   border-radius : 5px;
   padding: 15px;
+  float: right;
+  font-size: 1.5em;
 }
