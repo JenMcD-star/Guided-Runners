@@ -1,6 +1,6 @@
 class EventsController < ApplicationController
     def index
-      @pagy, @events = pagy(Event.all, items: 3)
+      @pagy, @events = pagy(Event.all, items: 5)
     end
   
     def show
