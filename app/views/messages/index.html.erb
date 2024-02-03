@@ -1,7 +1,12 @@
-<% puts params %>
+<% if current_user.id == Conversation.find(params[:conversation_id]).recipient_id %>
 
+<% recipient = Conversation.find(params[:conversation_id]).sender_id %>
+<% recipient_name = User.find(recipient) %>
+
+<% else %>
 <% recipient = Conversation.find(params[:conversation_id]).recipient_id %>
 <% recipient_name = User.find(recipient) %>
+<% end %>
 
 <div class = "recipient">
 <h1> Conversation with <%= recipient_name.name %></h1>
@@ -14,5 +19,5 @@
 <%= form_for [@conversation, @message] do |f| %>     
     <%= f.text_area :body %>
     <%= f.text_field :user_id, value: current_user.id, type: "hidden" %>
-    <%= f.submit "Send Message" %>
+    <%= f.button "Send Message" %>
    <% end %>

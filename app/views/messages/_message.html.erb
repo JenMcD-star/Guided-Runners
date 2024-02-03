@@ -1,12 +1,33 @@
 <% if message.body %>
-    <% user = User.find(message.user_id) %>
-    <strong><%= user.name %></strong>
+
+<% message_id = User.find(message.user_id) %>
+<% if current_user.name == message_id.name %>
+        <div class = "messageStyling">
+     <strong><%= message_id.name %></strong>:
     <%= message.body %>
+    </div>
+    <br>
+    <br>
+    <br>
+<% else%>
+<div class = "messageStyling2">
+<% message_id = User.find(message.user_id) %>
+
+<strong><%= message_id.name %></strong>:
+<%= message.body %>
+</div>
+<br>
+<br>
+<br>
+
+<% end %>
+
+<br>
 
 <% end %>
 
 
-<br>
+
 
 
 
