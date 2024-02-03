@@ -1,9 +1,14 @@
 <% if message.body %>
+
+
+<div class = "messageStyling">
     <% user = User.find(message.user_id) %>
-    <strong><%= user.name %></strong>
+    <strong><%= user.name %></strong>:
     <%= message.body %>
 
+
 <% end %>
+</div>
 
 
 <br>
