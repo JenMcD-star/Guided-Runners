@@ -251,11 +251,11 @@ span.picture {
 
 .stats {
   margin-left: -10px;
-  margin-top: 1%;
-  width: 50%;
-  padding: 10px;
+  margin-top: -20px;
+  width: fit-content;
+  padding: 40px;
 
-  overflow: auto;
+  overflow: clip;
   a {
     float: left;
     padding: 0 10px;
@@ -419,4 +419,28 @@ padding: 10px;
   padding: 15px;
   float: right;
   font-size: 1.5em;
+}
+
+#follow_form{
+  .btn {
+    width: fit-content;
+  }
+}
+
+.profileFeed{
+  float: right;
+  margin-right: 468px;
+  margin-bottom:65px ;
+}
+
+.deleteUserBtn{
+  margin: 150px;
+  margin-left: 338px
+
+}
+
+.eventPage{
+  background-color: peachpuff;
+  min-height: 500px;
+  min-width: 50%
 }

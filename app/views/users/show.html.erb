@@ -1,35 +1,30 @@
 <% provide(:title, @user.name) %>
-<div class="row">
-  <aside class="col-md-4">
-    <section class="user_info">
-      <h1>
-        <%= gravatar_for @user %>
-        <%= @user.name %>
-        </h1>
-        
-        <div class = "bio">
-       Bio: <%= @user.bio %>
-        </div>
-        
-        <div class ="status">
-        Status: <%= @user.status %>
-        </div>
-
+<section class="user_info">
+  <%= render 'profile_form' %>
+      </section>
+      <br>
+      <section class="stats">
+      <%= render 'shared/stats' %>
     </section>
-    <section class="stats">
-    <%= render 'shared/stats' %>
     <%= render 'follow_form' if logged_in? %>
+
+    <% if @user != current_user.id %><h3>
+<%= button_to 'message me', conversations_path(sender_id: current_user.id, recipient_id: @user), method: "post"%></h3>
+
+
+
   </section>
   </aside>
 </div>
-<div class = "userEvent">
-<%= render 'user_event' %>
 </div>
 
-<% if @user != current_user.id %><h3>
-<%= button_to 'message me', conversations_path(sender_id: current_user.id, recipient_id: @user), method: "post"%></h3>
+<ol class = "eventTitle">
+</ol>
+<%= render 'user_event' %>
 <% end %>
 
+<div class= deleteUserBtn>
 <% if current_user.admin? && !current_user?(@user) %>
  <td><%= button_to('Delete', @user, method: :delete, data: { turbo_confirm: 'Are you sure?' }) %></td>
  <% end %>
+ </div>

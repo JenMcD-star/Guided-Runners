@@ -1,6 +1,7 @@
 <% provide(:title, @event.name) %>
 <div class="row">
   <aside class="col-md-4">
+  <div class= "eventPage">
     <section class="user_info">
 
         
@@ -17,14 +18,15 @@
         </div>
 
         <div class ="status">
-        Creator: <%= @event.user.name%>
+        Creator: <%= link_to @event.user.name, @event.user%>
         </div>
 
 
     
-
+</div>
     </section>
   </aside>
 </div>
+
 
 
