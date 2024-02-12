@@ -27,6 +27,8 @@ gem "faker", "~> 3.2.2"
 
 gem "ransack"
 
+gem 'rails-erd', group: :development
+
 # Hotwire's modest JavaScript framework [https://stimulus.hotwired.dev]
 gem "stimulus-rails"
 
@@ -82,3 +84,4 @@ group :test do
   gem "selenium-webdriver"
 
 end
+
